@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('anggotas', function (Blueprint $table) {
+        Schema::create('bukus', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_anggota','9');
-            $table->string('nama_anggota','100');
-            $table->char('jk_anggota','1');
-            $table->string('jurusan_anggota','2');
-            $table->string('no_telp_anggota','13');
-            $table->string('alamat_anggota','100');
+            $table->char('kode_buku','5');
+            $table->string('judul_buku','50');
+            $table->string('penulis_buku','50');
+            $table->string('penerbit_buku','50');
+            $table->char('tahun_penerbit','4');
+            $table->integer('stok');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('anggotas');
+        Schema::dropIfExists('bukus');
     }
 };

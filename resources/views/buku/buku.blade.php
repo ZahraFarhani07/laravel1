@@ -1,5 +1,5 @@
 <!-- Google Font: Source Sans Pro -->
-  @extends('template.master')
+@extends('template.master')
   @section('content')
 <div class="card card-primary">
               <div class="card-header">

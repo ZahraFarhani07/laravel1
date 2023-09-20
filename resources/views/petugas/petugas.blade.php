@@ -1,31 +1,75 @@
 @extends('template.master')
+
 @section('content')
-<div class="card card-primary">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Data Petugas</h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Form Input Data Petugas</h3>
+                <h3 class="card-title">Data Petugas</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/petugas/store" method="POST">
+              <form action="{{ route('petugas.store') }}" method="POST">
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Nama Petugas</label>
-                    <input type="text" class="form-control" name="nama_petugas" placeholder="Input Nama Petugas">
-                    <label for="exampleInputEmail1">Jabatan Petugas</label>
-                    <input type="text" class="form-control" name="jabatan_petugas" placeholder="Input Jabatan Petugas">
-                    <label for="exampleInputEmail1">No Telepon</label>
-                    <input type="number" class="form-control" name="no_telp_petugas" placeholder="Input No Telepon Petugas">
-                    <label for="exampleInputEmail1">Alamat Petugas</label>
-                    <input type="text" class="form-control" name="alamat_petugas" placeholder="Input Alamat Petugas">
+                    <label for="nama_petugas">Nama</label>
+                    <input type="text" name="nama_petugas" id="nama_petugas" class="form-control" placeholder="Input Nama Petugas">
                   </div>
+                  <div class="form-group">
+                    <label for="jabatan_petugas">Jabatan</label>
+                    <select type="text" name="jabatan_petugas" id="jabatan_petugas" class="form-control">
+                          <option disable selected>Pilih Jabatan Petugas</option>
+                          <option value="Kepala Perpustakaan">Kepala Perpustakaan</option>
+                          <option value="Asisten Kepala Perpustakaan">Asisten Kepala Perpustakaan</option>
+                          <option value="Administrasi">Administrasi</option>
+                        </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="no_telp_petugas">No Telepon</label>
+                    <input type="number" name="no_telp_petugas" id="no_telp_petugas" class="form-control" placeholder="Input No Telp Petugas">
+                  </div>
+                  <div class="form-group">
+                    <label for="alamat_petugas">Alamat</label>
+                    <input type="text" name="alamat_petugas" id="alamat_petugas" class="form-control" placeholder="Input Alamat Petugas">
+                  </div>
+                </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
-                  <button type="submit" class="btn btn-primary">Reset</button>
+                  <button type="reset" class="btn btn-danger" style="margin-left: 8px">Reset</button>
+                  <a href="{{ route('petugas.index') }}"  class="btn btn-small btn-secondary" style="margin-left: 8px">Back</a>
                 </div>
               </form>
             </div>
-</div>
+            <!-- /.card -->
+
+            <!-- general form elements -->
+            <!-- /.card -->
+
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
 @endsection
